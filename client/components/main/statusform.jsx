@@ -45,7 +45,12 @@ Statusform = React.createClass({
             <div className="panel panel-default">
                 <div className="panel-content">
                     <div className="panel-heading">
-                        Post a group workout
+                        Post a group workout 
+                    </div>
+                    <div className="panel-heading">
+                        <Picker
+                        selected={this.state.startDate}
+                        onChange={this.handleChange} />
                     </div>
                     <form onSubmit={this.submitForm} className="form center-block">
                         <input type="hidden" ref="imagepath" value={this.state.imageurl}/>

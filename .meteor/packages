@@ -31,7 +31,4 @@ cosmos:browserify
 cfs:standard-packages
 cfs:filesystem
 momentjs:moment
-
-
-
 npm-container
