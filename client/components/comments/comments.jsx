@@ -20,9 +20,9 @@ CommentsList = React.createClass({
     },
     render(){
         var rows = this.data.comments.map(function(comment){
-            var timesince = moment(comment.createdOn ).fromNow();
+            var timesince = moment(comment.createdOn).fromNow();
             return (
-                <li id={comment._id} className="comment">
+                <li key={comment._id} className="comment">
                     <a className="pull-left" href="#">
                         <Avatar klass="small" user={comment.user}/>
                     </a>

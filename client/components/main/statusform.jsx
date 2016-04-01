@@ -45,7 +45,7 @@ Statusform = React.createClass({
             <div className="panel panel-default">
                 <div className="panel-content">
                     <div className="panel-heading">
-                        Update Status
+                        Post a group workout
                     </div>
                     <form onSubmit={this.submitForm} className="form center-block">
                         <input type="hidden" ref="imagepath" value={this.state.imageurl}/>
@@ -53,7 +53,7 @@ Statusform = React.createClass({
                             <div className="form-group">
                                 <textarea ref="sharing" className="form-control input-lg"
                                           autofocus=""
-                                          placeholder="What do you want to share?"></textarea>
+                                          placeholder="Add any details about your workout"></textarea>
                             </div>
                             <h3>{this.state.filename||''}</h3>
                         </div>

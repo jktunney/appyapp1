@@ -11,15 +11,10 @@ Navbar = React.createClass({
         return data;
     },
     componentDidMount(){
-        var Typeahead = require('typeahead');
         var users = Meteor.users.find({},{fields:{'profile':1}}).fetch();
         var usernames = [];
         users.map(function(user){
             usernames.push(user.profile.fullname);
-        });
-        $('#typeahead').typeahead({
-            name: 'users',
-            local: usernames
         });
     },
     handleSubmit(e){
