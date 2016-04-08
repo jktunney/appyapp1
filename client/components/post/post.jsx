@@ -2,6 +2,7 @@ Post = React.createClass({
     mixins:[ReactMeteorData],
     getMeteorData(){
         return {};
+        Meteor.subscribe('postlist', 'imagelist')
     },
     likePost(e){
         e.preventDefault();
@@ -63,6 +64,7 @@ Post = React.createClass({
                             </div>
                         </div>
                         <div className="col-md-12 post-description">
+                            <h3>{this.props.post.date}</h3>
                             <h3>{this.props.post.message}</h3>
                             <br/>
                         </div>

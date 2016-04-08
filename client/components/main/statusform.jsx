@@ -7,7 +7,8 @@ Statusform = React.createClass({
     getInitialState(){
         return {
             image:'',
-            filename:''
+            filename:'',
+            startDate: moment()
         }
     },
     resetFields(){
@@ -19,15 +20,15 @@ Statusform = React.createClass({
         var that = this;
         var message = this.refs.sharing.value;
         var imageurl = this.refs.imagepath.value;
-            Meteor.call('Posts.insert',message,imageurl,function(err){
+        var date = this.props.selected;
+            Meteor.call('Posts.insert',message,imageurl,date,function(err){
                 if(err){
                     console.log(err);
                 }
             });
             this.setState({filename:''});
             this.resetFields();
-
-
+            console.log(date);
     },
     uploadFile(e){
         e.preventDefault();

@@ -26,9 +26,10 @@ Meteor.startup(function () {
         DBAds.insert({title: 'First Advertisement', text: 'This is on sale now.'});
     }
     Meteor.methods({
-        'Posts.insert': function (message, imageurl) {
+        'Posts.insert': function (message, imageurl, date) {
             var post = {
                 user: Meteor.user(),
+                date: date,
                 createdAt: new Date(),
                 imageurl: imageurl,
                 message: message,
