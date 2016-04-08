@@ -1,9 +1,12 @@
+var DatePicker = require('react-datepicker');
+
 Statusform = React.createClass({
     mixins:[ReactMeteorData],
     getMeteorData(){
            let data = {};
         return data;
     },
+
     getInitialState(){
         return {
             image:'',
@@ -11,24 +14,31 @@ Statusform = React.createClass({
             startDate: moment()
         }
     },
+    handleChange: function(newDate) {
+        this.setState({
+            startDate: newDate
+        });
+    },
     resetFields(){
         ReactDOM.findDOMNode(this.refs.sharing).value = "";
         ReactDOM.findDOMNode(this.refs.sharing).focus();
+        ReactDOM.findDOMNode(this.refs.dateValue).value = moment();
     },
     submitForm(e){
         e.preventDefault();
         var that = this;
         var message = this.refs.sharing.value;
         var imageurl = this.refs.imagepath.value;
-        var date = this.props.selected;
-            Meteor.call('Posts.insert',message,imageurl,date,function(err){
+        var date = this.refs.dateValue.value / 1000;
+        var formatedDate = moment.unix(date).format('MM/DD/YYYY');
+            Meteor.call('Posts.insert',message,imageurl,formatedDate,function(err){
                 if(err){
                     console.log(err);
                 }
             });
             this.setState({filename:''});
             this.resetFields();
-            console.log(date);
+            console.log(formatedDate);
     },
     uploadFile(e){
         e.preventDefault();
@@ -41,17 +51,11 @@ Statusform = React.createClass({
 
     },
     render(){
-
         return (
             <div className="panel panel-default">
                 <div className="panel-content">
                     <div className="panel-heading">
                         Post a group workout 
-                    </div>
-                    <div className="panel-heading">
-                        <Picker
-                        selected={this.state.startDate}
-                        onChange={this.handleChange} />
                     </div>
                     <form onSubmit={this.submitForm} className="form center-block">
                         <input type="hidden" ref="imagepath" value={this.state.imageurl}/>
@@ -63,6 +67,12 @@ Statusform = React.createClass({
                             </div>
                             <h3>{this.state.filename||''}</h3>
                         </div>
+                        <div className="panel-heading">
+                            <input type="hidden" ref="dateValue" value={this.state.startDate} />
+                            <DatePicker 
+                            selected={this.state.startDate}
+                            onChange={this.handleChange}/>
+                        </div>
                         <div className="panel-footer">
                             <div>
                                 <ul className="pull-left list-inline">
@@ -72,7 +82,6 @@ Statusform = React.createClass({
                             </div>
                         </div>
                     </form>
-
                 </div>
             </div>
         )

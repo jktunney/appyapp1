@@ -64,7 +64,7 @@ Post = React.createClass({
                             </div>
                         </div>
                         <div className="col-md-12 post-description">
-                            <h3>{this.props.post.date}</h3>
+                            <h5>Workout Date: {this.props.post.date}</h5>
                             <h3>{this.props.post.message}</h3>
                             <br/>
                         </div>
