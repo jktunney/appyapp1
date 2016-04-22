@@ -2,18 +2,18 @@ Featurelist = React.createClass({
     features: [
         {
             icon: "fa fa-image fa-2x",
-            bigtext: "See photos and updates",
-            littletext: "from friends in News Feed"
+            bigtext: "Find free group fitness activities",
+            littletext: "right in your own backyard"
         },
         {
             icon: "fa fa-share fa-2x",
-            bigtext: "Share what\'s new",
-            littletext: "in your life on your Timeline"
+            bigtext: "Create new free workouts",
+            littletext: "Coordinate social activities"
         },
         {
-            icon: "fa fa-search fa-2x",
-            bigtext: "Find more",
-            littletext: "of what you\'re looking for with Fakebook search"
+            icon: "fa fa-level-up fa-2x",
+            bigtext: "Become a leader",
+            littletext: "have your workouts featured"
         }
     ],
     render(){
@@ -34,8 +34,7 @@ Featurelist = React.createClass({
         return (
             <div>
                 <h2 className="col-md-11 featurelist hidden-xs">
-                    Connect with friends and the
-                    world around you on Fakebook.
+                    Find and create free group fitness with GiveFit
                 </h2>
                 <ul className="ds-btn hidden-xs">
                     {rows}

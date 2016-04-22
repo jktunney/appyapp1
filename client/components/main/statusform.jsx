@@ -69,7 +69,7 @@ Statusform = React.createClass({
                         </div>
                         <div className="panel-heading">
                             <input type="hidden" ref="dateValue" value={this.state.startDate} />
-                            <DatePicker 
+                            When <DatePicker 
                             selected={this.state.startDate}
                             onChange={this.handleChange}/>
                         </div>

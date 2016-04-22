@@ -32,7 +32,7 @@ Header = React.createClass({
     render(){
         return (
             <div>
-                <span className="navbar-react"><i className="fa fa-facebook"></i>akebook
+                <span className="navbar-react">GiveFit
                     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <form onSubmit={this.handleSubmit} id="signin" className="navbar-form navbar-right" role="form">
                             <div className="input-group">
